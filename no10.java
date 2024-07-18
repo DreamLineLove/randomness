@@ -6,6 +6,18 @@ class BankUser {
         john.Summarize();
         mary.Summarize();
 
-        System.out.println("Total number of accounts created: " + BankAccount.GetTotalNumberOfAccountsCreated());
+        john.Deposit(100.0, true);
+        john.Withdraw(0, false);
+        john.Withdraw(50, true);
+        System.out.println();
+
+        john.Summarize();
+
+        mary.Deposit(200.0, true);
+        System.out.println();
+
+        mary.Summarize();
+
+        System.out.println("Total number of accounts : " + BankAccount.GetTotalNumberOfAccountsCreated());
     }
 }
