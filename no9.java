@@ -1,7 +1,7 @@
 class BankAccount {
     private String account_holder_name;
     private int account_number;
-    private int current_balance = 0;
+    private double current_balance = 0;
     private static int number_of_accounts_created = 0;
 
     BankAccount(String name, int number) {
@@ -10,14 +10,24 @@ class BankAccount {
         number_of_accounts_created++;
     }
 
-    void Deposit(int amount) {
+    void Deposit(double amount, boolean valid) {
         current_balance += amount;
-        System.out.println("Successful!\nNew Balance: " + current_balance + "\n");
+        if (valid) {
+            System.out.println("Deposit successful");
+            System.out.println(account_holder_name + " new balance : " + current_balance);
+        } else {
+            System.out.println("Deposit unsuccessful!");
+        }
     }
     
-    void Withdraw(int amount) {
+    void Withdraw(double amount, boolean valid) {
         current_balance -= amount;
-        System.out.println("Successful!\nNew Balance: " + current_balance + "\n");
+        if (valid) {
+            System.out.println("Withdrawal successful");
+            System.out.println(account_holder_name + " new balance : " + current_balance);
+        } else {
+            System.out.println("Withdrawal unsuccessful!");
+        }
     }
 
     void Summarize() {
